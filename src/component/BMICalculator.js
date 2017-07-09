@@ -15,7 +15,7 @@ export default class BMICalculator extends Component {
             height = height / 100;
             return weight / (height * height);
         } else {
-            return "Ensure Height and Weight are Numbers"
+            return "(Ensure Height and Weight are Numbers)"
         }
     }
 
@@ -36,12 +36,30 @@ export default class BMICalculator extends Component {
         this.setState({height: heightValue, BMI: BMI})
     }
 
+    name = (e) => {
+        let enteredName = e.target.value;
+        this.setState({name: enteredName})
+    }
+
     render() {
-        const {weight, height, BMI} = this.state
+        const {name, weight, height, BMI} = this.state
         console.log(BMI);
 
         return (
             <div>
+            <label htmlFor={'Name'}>
+            Name
+            </label>
+            <input
+            id={'name'}
+            type={'text'}
+            value={name}
+            placeholder={'Enter First Name...'}
+            onChange={this.name}
+            />
+            <br />
+            <br />
+
             <label htmlFor={'weight'}>
             Weight
             </label>
@@ -49,7 +67,7 @@ export default class BMICalculator extends Component {
             id={'weight'}
             type={'text'}
             value={weight}
-            placeholder={'Placeholder'}
+            placeholder={'Enter Weight in KG'}
             onChange={this.weight}
             />
             <label htmlFor={'height'}>
@@ -59,7 +77,7 @@ export default class BMICalculator extends Component {
             id={'height'}
             type={'text'}
             value={height}
-            placeholder={'Placeholder'}
+            placeholder={'Enter Height in CM\'s'}
             onChange={this.height}
             />
             <br />
@@ -75,7 +93,7 @@ export default class BMICalculator extends Component {
               <p>height: -- cm</p>
             )}
             {BMI ? (
-              <p>BMI Index: {BMI}</p>
+              <p>BMI Index: {name}, your BMI is {BMI}</p>
             ) : (
               <p>BMI Index: -- </p>
             )}
