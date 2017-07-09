@@ -2,6 +2,7 @@
     "name": "BMI-Calculator",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://tripodistudios.github.io/bms-calculator",
     "dependencies": {
         "gh-pages": "^1.0.0",
         "react": "^15.6.1",
