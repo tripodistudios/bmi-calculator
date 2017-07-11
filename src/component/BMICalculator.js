@@ -1,3 +1,8 @@
+//Bootstrap Imports
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import { HelpBlock, FormGroup, FormControl, Grid, Row, Jumbotron, Button } from 'react-bootstrap';
+
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { calculateBMI } from  '../logic/BMICalculation';
@@ -27,61 +32,101 @@ export default class BMICalculator extends Component {
 
         return (
             <div>
-                <label htmlFor={'Name'}>
+                <Jumbotron>
+                      <Grid>
+                        <h1>BMI TEST</h1>
+                        <p>
+                          <Button
+                            bsStyle="success"
+                            bsSize="large"
+                            target="_blank"
+                            href="https://github.com/tripodistudios/bmi-calculator">
+                            {"View Git Repository for this code"}
+                          </Button>
+                        </p>
+                      </Grid>
+                </Jumbotron>
+
+                <br />
+                <br />
+
+
+                <FormGroup
+                bsClass={"col-xs-4"}
+                bsClass={"col-sm-offset-4"}>
+
+
+                <label htmlFor={'name'}>
                     Name
                 </label>
-                <input
-                    id={'name'}
-                    type={'text'}
-                    value={name}
-                    placeholder={'Enter First Name'}
-                    onChange={this.name}
-                />
-                <br />
-                <br />
+                <FormControl
+                  id={'name'}
+                  type="text"
+                  value={name}
+                  placeholder={'Enter Name'}
+                  onChange={this.name}
+                  />
+                <HelpBlock>
+                  {"Please Enter Full Name"}
+                </HelpBlock>
+
+                <br/>
 
                 <label htmlFor={'weight'}>
                     Weight
                 </label>
-                <input
-                    id={'weight'}
-                    type={'text'}
-                    value={weight}
-                    placeholder={'Enter Weight in KG'}
-                    onChange={this.weight}
-                />
+                <FormControl
+                  id={'weight'}
+                  type="text"
+                  value={weight}
+                  placeholder={'Enter Weight'}
+                  onChange={this.weight}
+                  />
+                <HelpBlock>
+                  {"Please Enter Weight in KG's"}
+                </HelpBlock>
+
+                <br/>
+
                 <label htmlFor={'height'}>
                     Height
                 </label>
-                <input
-                    id={'height'}
-                    type={'text'}
-                    value={height}
-                    placeholder={'Enter Height in CM\'s'}
-                    onChange={this.height}
-                />
-                <br />
-                <br />
-            {name ? (
-              <p>Name: {name}</p>
-            ) : (
-              <p>Name: Please Enter Your Name.</p>
-            )}
-                {weight ? (
-              <p>Weight: {weight} kg</p>
-            ) : (
-              <p>Weight: -- kg</p>
-            )}
-            {height ? (
-              <p>Height: {height} cm</p>
-            ) : (
-              <p>Height: -- cm</p>
-            )}
-            {BMI ? (
-              <p>BMI Index: {BMI}</p>
-            ) : (
-              <p>BMI Index: -- </p>
-            )}
+                <FormControl
+                  id={'height'}
+                  type="text"
+                  value={height}
+                  placeholder={'Enter Height in CM\'s'}
+                  onChange={this.height}
+                  />
+                <HelpBlock>
+                  {"Please Enter Height in CM's"}
+                </HelpBlock>
+
+                <br/>
+                <br/>
+
+                  {name ? (
+                    <p>Name: {name}</p>
+                  ) : (
+                    <p>Name: -- </p>
+                  )}
+                      {weight ? (
+                    <p>Weight: {weight} kg</p>
+                  ) : (
+                    <p>Weight: -- kg</p>
+                  )}
+                  {height ? (
+                    <p>Height: {height} cm</p>
+                  ) : (
+                    <p>Height: -- cm</p>
+                  )}
+                  {BMI ? (
+                    <p>BMI Index: {BMI}</p>
+                  ) : (
+                    <p>BMI Index: -- </p>
+                  )}
+              </FormGroup>
+              {/*<Button type="submit">Submit</Button>*/}
         </div>
         )
     }
