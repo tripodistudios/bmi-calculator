@@ -51,9 +51,11 @@ export default class BMICalculator extends Component {
                 <br />
 
 
+                <div className="row">
+                <div className="container-fluid col-md-offset-4">
                 <FormGroup
-                bsClass={"col-xs-4"}
-                bsClass={"col-sm-offset-4"}>
+                bsClass={"col-md-6"}
+                >
 
 
                 <label htmlFor={'name'}>
@@ -127,6 +129,8 @@ export default class BMICalculator extends Component {
                   )}
               </FormGroup>
               {/*<Button type="submit">Submit</Button>*/}
+            </div>
+            </div>
         </div>
         )
     }
