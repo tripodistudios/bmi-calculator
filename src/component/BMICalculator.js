@@ -1,15 +1,12 @@
-//Bootstrap Imports
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 import { HelpBlock, FormGroup, FormControl, Grid, Row, Jumbotron, Button } from 'react-bootstrap';
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { calculateBMI } from  '../logic/BMICalculation';
+import LiveData from './live-data.js'
 
 export default class BMICalculator extends Component {
-    state = {weight: '', height: '', BMI: ''}
-
+    state = {name:'', weight: '', height: '', BMI: ''}
     name = (e) => {
         let enteredName = e.target.value;
         this.setState({name: enteredName})
@@ -47,17 +44,11 @@ export default class BMICalculator extends Component {
                       </Grid>
                 </Jumbotron>
 
-                <br />
-                <br />
-
-
                 <div className="row">
                 <div className="container-fluid col-md-offset-4">
                 <FormGroup
                 bsClass={"col-md-6"}
                 >
-
-
                 <label htmlFor={'name'}>
                     Name
                 </label>
@@ -71,9 +62,6 @@ export default class BMICalculator extends Component {
                 <HelpBlock>
                   {"e.g. John Smith"}
                 </HelpBlock>
-
-                <br/>
-
                 <label htmlFor={'weight'}>
                     Weight
                 </label>
@@ -87,9 +75,6 @@ export default class BMICalculator extends Component {
                 <HelpBlock>
                   {"Weight in kg's"}
                 </HelpBlock>
-
-                <br/>
-
                 <label htmlFor={'height'}>
                     Height
                 </label>
@@ -103,34 +88,10 @@ export default class BMICalculator extends Component {
                 <HelpBlock>
                   {"Height in cm's"}
                 </HelpBlock>
-
-                <br/>
-                <br/>
-
-                  {name ? (
-                    <p>Name: {name}</p>
-                  ) : (
-                    <p>Name: -- </p>
-                  )}
-                      {weight ? (
-                    <p>Weight: {weight} kg</p>
-                  ) : (
-                    <p>Weight: -- kg</p>
-                  )}
-                  {height ? (
-                    <p>Height: {height} cm</p>
-                  ) : (
-                    <p>Height: -- cm</p>
-                  )}
-                  {BMI ? (
-                    <p>BMI Index: {BMI}</p>
-                  ) : (
-                    <p>BMI Index: -- </p>
-                  )}
               </FormGroup>
-              {/*<Button type="submit">Submit</Button>*/}
             </div>
             </div>
+            <LiveData name={name} weight={weight} height={height} BMI={BMI} />
         </div>
         )
     }
