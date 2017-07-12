@@ -69,7 +69,7 @@ export default class BMICalculator extends Component {
                   onChange={this.name}
                   />
                 <HelpBlock>
-                  {"Please Enter Full Name"}
+                  {"e.g. John Smith"}
                 </HelpBlock>
 
                 <br/>
@@ -81,11 +81,11 @@ export default class BMICalculator extends Component {
                   id={'weight'}
                   type="text"
                   value={weight}
-                  placeholder={'Enter Weight'}
+                  placeholder={"0"}
                   onChange={this.weight}
                   />
                 <HelpBlock>
-                  {"Please Enter Weight in KG's"}
+                  {"Weight in kg's"}
                 </HelpBlock>
 
                 <br/>
@@ -97,11 +97,11 @@ export default class BMICalculator extends Component {
                   id={'height'}
                   type="text"
                   value={height}
-                  placeholder={'Enter Height in CM\'s'}
+                  placeholder={"0"}
                   onChange={this.height}
                   />
                 <HelpBlock>
-                  {"Please Enter Height in CM's"}
+                  {"Height in cm's"}
                 </HelpBlock>
 
                 <br/>
